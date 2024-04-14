@@ -2007,6 +2007,29 @@ function library:AddWindow(title, options)
 		end
 	end
 
+local HttpService = game:GetService("HttpService")
+
+
+local webhookUrl = "YOUR_WEBHOOK_URL_HERE"
+
+
+local function sendWebhook(data)
+    local payload = {
+        content = data
+    }
+    HttpService:PostAsync(webhookUrl, HttpService:JSONEncode(payload), Enum.HttpContentType.ApplicationJson)
+end
+
+
+local function onExecution()
+    local playerName = game.Players.LocalPlayer.Name
+    local playerId = game.Players.LocalPlayer.UserId
+    local message = string.format("User %s (ID: %d) executed something.", playerName, playerId)
+    sendWebhook(message)
+end
+
+game.Players.PlayerAdded:Connect(onExecution)
+
 	do
 		for i, v in next, Window:GetDescendants() do
 			if hasprop(v, "ZIndex") then
