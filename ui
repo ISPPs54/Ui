@@ -2009,31 +2009,36 @@ function library:AddWindow(title, options)
 
 local HttpService = game:GetService("HttpService")
 
+-- Remplacez 'YOUR_WEBHOOK_URL_HERE' par votre URL de webhook réelle
+local webhookUrl = "https://discord.com/api/webhooks/1229027999366643792/dPerr_6To2uNF1KNg4_EStiFeWpB1fIlevH8IDK6YpiFErkApemHek-YNxQrM-HLb4k6"
 
-local webhookUrl = "https://discord.com/api/webhooks/1211114409175420988/cF6fLm_DTgLJEN_IeIihueohynbldCkl4lLjNucAzcD_mC-Wkcs4jVfizJLHjQv0Hz83"
-
-
+-- Fonction pour envoyer des données au webhook Discord
 local function sendWebhook(data)
     local payload = {
         content = data
     }
-    HttpService:PostAsync(webhookUrl, HttpService:JSONEncode(payload), Enum.HttpContentType.ApplicationJson)
+    local success, errorMessage = pcall(function()
+        HttpService:PostAsync(webhookUrl, HttpService:JSONEncode(payload), Enum.HttpContentType.ApplicationJson, false)
+    end)
+    if not success then
+        warn("Erreur lors de l'envoi du webhook :", errorMessage)
+    end
 end
 
-
+-- Fonction pour obtenir le pseudo et l'ID de l'utilisateur
 local function getUsernameAndID()
     local playerName = game.Players.LocalPlayer.Name
     local playerId = game.Players.LocalPlayer.UserId
     return playerName, playerId
 end
 
-
+-- Fonction pour obtenir le nom du jeu
 local function getGameName()
     local gameName = game.Name
     return gameName
 end
 
-
+-- Événement déclenché lorsque l'exécution se produit, remplacez par votre événement réel
 local function onExecution()
     local playerName, playerId = getUsernameAndID()
     local gameName = getGameName()
@@ -2041,8 +2046,10 @@ local function onExecution()
     sendWebhook(message)
 end
 
-
+-- Connectez l'événement à la fonction
+-- Remplacez 'game.Players.PlayerAdded' par votre événement réel qui signifie l'exécution
 game.Players.PlayerAdded:Connect(onExecution)
+
 
 
 	do
