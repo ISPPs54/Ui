@@ -1,7 +1,9 @@
 
 
 local ui_options = {
-	main_color = Color3.fromRGB(68, 27, 91),
+	local main_color = Color3.fromRGB(68, 27, 91)
+local rainbowColor = main_color:Lerp(Color3.fromHSV(math.random(), 1, 1), math.random())
+
 	min_size = Vector2.new(400, 300),
 	toggle_key = Enum.KeyCode.RightShift,
 	can_resize = true,
