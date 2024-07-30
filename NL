@@ -126,11 +126,11 @@ local NEVERLOSE = {
 		StrokeColor = Color3.fromRGB(50, 50, 50),
 		ButtonBlackgroundColor = Color3.fromRGB(26, 26, 26)
 	},
-	_Version="1.C",
+	_Version="10.C",
 	_Name="ProjectV1"
 }
 
-print(ProjectV1._Name..":",ProjectV1._Version..':',[[https://Why U Try To Look ?????/]],": UI BY ZTX,"ZTX")
+print(ProjectV1._Name..":",ProjectV1._Version..':',[[https://urmom.net/]],": UI BY ZTX","__ui")
 
 function NEVERLOSE:Theme(name)
 	name = tostring(name or "original"):lower()
