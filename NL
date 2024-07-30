@@ -127,10 +127,10 @@ local NEVERLOSE = {
 		ButtonBlackgroundColor = Color3.fromRGB(26, 26, 26)
 	},
 	_Version="10.C",
-	_Name="ProjectV1"
+	_Name="NEVERLOSE"
 }
 
-print(ProjectV1._Name..":",ProjectV1._Version..':',[[https://urmom.net/]],": UI BY ZTX","__ui")
+print(NEVERLOSE._Name..":",NEVERLOSE._Version..':',[[https://urmom.net/]],": UI BY ZTX","__ui")
 
 function NEVERLOSE:Theme(name)
 	name = tostring(name or "original"):lower()
