@@ -130,7 +130,7 @@ local NEVERLOSE = {
 	_Name="NEVERLOSE"
 }
 
-print(NEVERLOSE._Name..":",NEVERLOSE._Version..':',[[https://urmom.net/]],": UI BY ZTX","__ui")
+print(NEVERLOSE._Name..":",NEVERLOSE._Version..':',[[https://neverlose.cc/]],": UI BY ZTX","__ui")
 
 function NEVERLOSE:Theme(name)
 	name = tostring(name or "original"):lower()
