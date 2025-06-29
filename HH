@@ -1685,103 +1685,115 @@ local SrcFrame = Instance.new("Frame")
 TabBlock.Name = HM:RNHash()
 TabBlock.Parent = TabFrames
 TabBlock.AnchorPoint = Vector2.new(0.5, 0.5)
-TabBlock.BackgroundColor3 = Color3.fromRGB(30, 30, 30)
-TabBlock.BackgroundTransparency = 0.1
+TabBlock.BackgroundColor3 = Color3.fromRGB(20, 20, 25)
+TabBlock.BackgroundTransparency = 0.05
 TabBlock.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabBlock.BorderSizePixel = 0
 TabBlock.Position = UDim2.new(0.5, 0, 0.5, 0)
 TabBlock.Size = UDim2.new(1, 0, 1, 0)
 TabBlock.ZIndex = 10
 local UICorner = Instance.new("UICorner")
-UICorner.CornerRadius = UDim.new(0, 8)
+UICorner.CornerRadius = UDim.new(0, 10)
 UICorner.Parent = TabBlock
+local UIShadow = Instance.new("UIStroke")
+UIShadow.Color = Color3.fromRGB(0, 0, 0)
+UIShadow.Thickness = 2
+UIShadow.Transparency = 0.7
+UIShadow.Parent = TabBlock
 
 TabHeaders.Name = HM:RNHash()
 TabHeaders.Parent = TabBlock
-TabHeaders.BackgroundColor3 = Color3.fromRGB(40, 40, 40)
-TabHeaders.BackgroundTransparency = 0.2
+TabHeaders.BackgroundColor3 = Color3.fromRGB(30, 30, 35)
+TabHeaders.BackgroundTransparency = 0.1
 TabHeaders.BorderColor3 = Color3.fromRGB(0, 0, 0)
 TabHeaders.BorderSizePixel = 0
 TabHeaders.ClipsDescendants = true
-TabHeaders.Size = UDim2.new(1, 0, 0, 28)
+TabHeaders.Size = UDim2.new(1, 0, 0, 32)
 local UIGradient = Instance.new("UIGradient")
 UIGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(50, 50, 50)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(30, 30, 30))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(60, 60, 80)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(100, 80, 120))
 }
+UIGradient.Rotation = 45
 UIGradient.Parent = TabHeaders
 local HeaderCorner = Instance.new("UICorner")
-HeaderCorner.CornerRadius = UDim.new(0, 6)
+HeaderCorner.CornerRadius = UDim.new(0, 8)
 HeaderCorner.Parent = TabHeaders
 
 SectionScroll.Name = HM:RNHash()
 SectionScroll.Parent = TabHeaders
 SectionScroll.Active = true
 SectionScroll.AnchorPoint = Vector2.new(0.5, 0.5)
-SectionScroll.BackgroundColor3 = Color3.fromRGB(35, 35, 35)
-SectionScroll.BackgroundTransparency = 0.3
+SectionScroll.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+SectionScroll.BackgroundTransparency = 0.2
 SectionScroll.BorderColor3 = Color3.fromRGB(0, 0, 0)
 SectionScroll.BorderSizePixel = 0
 SectionScroll.ClipsDescendants = false
 SectionScroll.Position = UDim2.new(0.5, 0, 0.5, 0)
-SectionScroll.Size = UDim2.new(1, -6, 1, -4)
-SectionScroll.ScrollBarImageColor3 = Color3.fromRGB(100, 100, 255)
+SectionScroll.Size = UDim2.new(1, -8, 1, -6)
+SectionScroll.ScrollBarImageColor3 = Color3.fromRGB(120, 100, 255)
 SectionScroll.CanvasSize = UDim2.new(2, 0, 0, 0)
-SectionScroll.ScrollBarThickness = 3
+SectionScroll.ScrollBarThickness = 2
 local ScrollCorner = Instance.new("UICorner")
-ScrollCorner.CornerRadius = UDim.new(0, 4)
+ScrollCorner.CornerRadius = UDim.new(0, 6)
 ScrollCorner.Parent = SectionScroll
 
 UIListLayout.Parent = SectionScroll
 UIListLayout.FillDirection = Enum.FillDirection.Horizontal
 UIListLayout.SortOrder = Enum.SortOrder.LayoutOrder
 UIListLayout.VerticalAlignment = Enum.VerticalAlignment.Center
-UIListLayout.Padding = UDim.new(0, 8)
+UIListLayout.Padding = UDim.new(0, 10)
 
 UIListLayout:GetPropertyChangedSignal('AbsoluteContentSize'):Connect(function()
-    SectionScroll.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 12, 0, 0)
+    SectionScroll.CanvasSize = UDim2.new(0, UIListLayout.AbsoluteContentSize.X + 15, 0, 0)
 end)
 
 task.delay(1, function()
-    TweenSv:Create(UIListLayout, TweenInfo.new(1.2, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), {
-        Padding = UDim.new(0, 6)
+    TweenSv:Create(UIListLayout, TweenInfo.new(1.5, Enum.EasingStyle.Exponential, Enum.EasingDirection.InOut), {
+        Padding = UDim.new(0, 5)
     }):Play()
 end)
 
 HeadLine.Name = HM:RNHash()
 HeadLine.Parent = TabBlock
 HeadLine.AnchorPoint = Vector2.new(0, 1)
-HeadLine.BackgroundColor3 = Color3.fromRGB(100, 100, 255)
-HeadLine.BackgroundTransparency = 0.4
+HeadLine.BackgroundColor3 = Color3.fromRGB(120, 100, 255)
+HeadLine.BackgroundTransparency = 0.3
 HeadLine.BorderColor3 = Color3.fromRGB(0, 0, 0)
 HeadLine.BorderSizePixel = 0
-HeadLine.Position = UDim2.new(0, 0, 0, 28)
-HeadLine.Size = UDim2.new(1, 0, 0, 2)
+HeadLine.Position = UDim2.new(0, 0, 0, 32)
+HeadLine.Size = UDim2.new(1, 0, 0, 3)
 HeadLine.ZIndex = 4
 local HeadLineGradient = Instance.new("UIGradient")
 HeadLineGradient.Color = ColorSequence.new{
-    ColorSequenceKeypoint.new(0, Color3.fromRGB(100, 100, 255)),
-    ColorSequenceKeypoint.new(1, Color3.fromRGB(150, 150, 255))
+    ColorSequenceKeypoint.new(0, Color3.fromRGB(150, 130, 255)),
+    ColorSequenceKeypoint.new(1, Color3.fromRGB(80, 60, 200))
 }
+HeadLineGradient.Rotation = 90
 HeadLineGradient.Parent = HeadLine
+local HeadLineStroke = Instance.new("UIStroke")
+HeadLineStroke.Color = Color3.fromRGB(150, 130, 255)
+HeadLineStroke.Thickness = 1
+HeadLineStroke.Transparency = 0.4
+HeadLineStroke.Parent = HeadLine
 
 SrcFrame.Name = HM:RNHash()
 SrcFrame.Parent = TabBlock
-SrcFrame.BackgroundColor3 = Color3.fromRGB(25, 25, 25)
-SrcFrame.BackgroundTransparency = 0.15
+SrcFrame.BackgroundColor3 = Color3.fromRGB(22, 22, 28)
+SrcFrame.BackgroundTransparency = 0.1
 SrcFrame.BorderColor3 = Color3.fromRGB(0, 0, 0)
 SrcFrame.BorderSizePixel = 0
 SrcFrame.ClipsDescendants = true
-SrcFrame.Position = UDim2.new(0, 0, 0, 28)
-SrcFrame.Size = UDim2.new(1, 0, 1, -28)
+SrcFrame.Position = UDim2.new(0, 0, 0, 32)
+SrcFrame.Size = UDim2.new(1, 0, 1, -32)
 SrcFrame.ZIndex = 9
 local SrcFrameCorner = Instance.new("UICorner")
-SrcFrameCorner.CornerRadius = UDim.new(0, 6)
+SrcFrameCorner.CornerRadius = UDim.new(0, 8)
 SrcFrameCorner.Parent = SrcFrame
 local UIStroke = Instance.new("UIStroke")
-UIStroke.Color = Color3.fromRGB(50, 50, 50)
-UIStroke.Thickness = 1
-UIStroke.Transparency = 0.5
+UIStroke.Color = Color3.fromRGB(60, 60, 80)
+UIStroke.Thickness = 1.5
+UIStroke.Transparency = 0.3
 UIStroke.Parent = SrcFrame
 
 
